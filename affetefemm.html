@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seni özledim efemmm</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+text-align:center;
+height:100vh;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+color:white;
+font-size:6vw;
+}
+
+button{
+padding:15px 35px;
+font-size:5vw;
+border:none;
+border-radius:12px;
+margin:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#evet{
+background:#ff2e63;
+color:white;
+}
+
+#hayir{
+background:#333;
+color:white;
+}
+
+#mesaj{
+display:none;
+font-size:7vw;
+color:white;
+margin-top:20px;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<h1 id="soru">Bebişim bni bırakma seni özlüyorum 🥺</h1>
+
+<div>
+<button id="evet">Evetttt ❤️</button>
+<button id="hayir">Hayır</button>
+</div>
+
+<div id="mesaj">
+YERİM SENİ YAA MWWUUAAH 🎉❤️
+</div>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+
+let evet = document.getElementById("evet");
+let hayir = document.getElementById("hayir");
+let mesaj = document.getElementById("mesaj");
+let soru = document.getElementById("soru");
+
+let evetBoyut = 5;
+
+let sorular = [
+"emin misin? 🥺",
+"Gerçekten hayır mı diyorsun?",
+"Bir daha düşün",
+"Lütfen 😭",
+"Efe sensiz yapamam",
+"Son defa soruyorum... BENI AFFEDECEK MISIN^^?"
+];
+
+let index = 0;
+
+evet.onclick = function(){
+
+mesaj.style.display="block";
+
+evet.style.position="fixed";
+evet.style.left="0";
+evet.style.top="0";
+evet.style.width="100vw";
+evet.style.height="100vh";
+evet.style.fontSize="10vw";
+
+}
+
+hayir.onclick = function(){
+
+if(index < sorular.length){
+
+soru.innerText = sorular[index];
+index++;
+
+}
+
+}
+
+function evetBuyut(){
+
+evetBoyut += 0.5;
+
+evet.style.fontSize = evetBoyut + "vw";
+
+}
+
+setInterval(evetBuyut,2000);
+
+
+function kalp(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(kalp,300);
+
+</script>
+
+</body>
+</html>
